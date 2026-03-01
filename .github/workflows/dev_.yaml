@@ -16,6 +16,7 @@ jobs:
           chmod 700 ~/ssh_key
           ssh -i ~/ssh_key -o StrictHostKeyChecking=no root@143.110.252.78  -t "cd turbo-repo &&
           git pull &&
+          EXPORT /home/arslan/.local/share/pnpm:/home/arslan/.local/bin:/home/arslan/.nvm/versions/node/v20.19.3/bin:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/arslan/.rover/bin:/home/arslan/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin &&
           npm install -g pnpm &&
           pnpm build &&
           pm2 restart all
