@@ -16,7 +16,7 @@ jobs:
           chmod 700 ~/ssh_key
           ssh -i ~/ssh_key -o StrictHostKeyChecking=no root@143.110.252.78  -t " cd turbo-repo &&
           git pull &&
-          export NVM_DIR=\"$HOME/.nvm\"
+          export NVM_DIR=\"$HOME/.nvm\" &&
           source \"$NVM_DIR/nvm.sh\" &&
           npm install -g pnpm &&
           pnpm build &&
