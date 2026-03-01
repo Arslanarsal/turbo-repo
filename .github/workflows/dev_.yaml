@@ -16,6 +16,7 @@ jobs:
           chmod 700 ~/ssh_key
           ssh -i ~/ssh_key -o StrictHostKeyChecking=no root@143.110.252.78  -t "cd turbo-repo &&
           git pull &&
+          npm install -g pnpm &&
           pnpm build &&
           pm2 restart all
           "
