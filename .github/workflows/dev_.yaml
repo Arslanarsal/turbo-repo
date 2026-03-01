@@ -1,0 +1,21 @@
+name: depolyment to production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name : deplotment every to the staging cluster
+    steps:
+      - run: |
+          echo "Deploying to staging cluster this is the echo here "
+          echo "${{secrets.SSH_DIGITAL_OCEAN_KEY}}" &> ~/ssh_key
+          ssh i ~/ssh_key root@143.110.252.78 
+          cd turbo-repo 
+          git pull 
+          pnpm build
+          pm2 restart all
+
